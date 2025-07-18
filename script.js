@@ -15,9 +15,11 @@ function initAutocomplete() {
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- 1. CONFIGURACIÓN CON TUS CLAVES ---
-    const EMAILJS_PUBLIC_KEY = 'a9ub9e5KtbTzIMrQT';
+    // ===== CLAVES DE EMAILJS CORREGIDAS =====
+    const EMAILJS_PUBLIC_KEY = 'uu13Uw2hqh0Y2eMy-'; // <-- ¡ESTA ERA LA CLAVE INCORRECTA! YA ESTÁ CORREGIDA.
     const EMAILJS_SERVICE_ID = 'service_62vzrtr';
     const EMAILJS_TEMPLATE_ID = 'template_envoogp';
+    // ==========================================
     emailjs.init(EMAILJS_PUBLIC_KEY);
 
     const firebaseConfig = {
@@ -82,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function populateVoucher() {
         const data = {
             destino: document.getElementById('destino').value, nombre: document.getElementById('nombre-completo').value, documento: document.getElementById('documento').value, 
-            telefono: document.getElementById('telefono').value, email: document.getElementById('email').value,
+            telefono: document.getElementById('telefono').value, email: document.getElementById('email').value, direccion: document.getElementById('direccion').value,
             fechaInput: document.getElementById('fecha-viaje').value, noches: document.getElementById('cantidad-noches').value, hotel: document.getElementById('hotel').value, localizador: document.getElementById('localizador').value || 'Pendiente', 
             habitaciones: document.getElementById('cantidad-habitaciones').value, valorRestante: document.getElementById('valor-restante').value, moneda: document.getElementById('moneda').value, regimen: document.getElementById('regimen').value, acompanantes: document.getElementById('acompanantes').value, observaciones: document.getElementById('observaciones').value,
         };
@@ -114,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('confirm-documento').textContent = data.documento;
         document.getElementById('confirm-telefono').textContent = data.telefono;
         document.getElementById('confirm-email').textContent = data.email;
+        document.getElementById('confirm-direccion').textContent = data.direccion.trim() || 'No especificada';
         document.getElementById('confirm-acompanantes').textContent = data.acompanantes.trim() || 'No especificado';
         document.getElementById('confirm-checkin').textContent = fechaCheckInFormateada;
         document.getElementById('confirm-checkout').textContent = fechaCheckOutFormateada;
@@ -149,13 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
             
-            // --- INICIO DE LA CORRECCIÓN DE ENLACES ---
             const scaleFactor = imgWidth / elementToPrint.offsetWidth;
             addLinkToPDF(pdf, 'banner-vuelos', elementToPrint, scaleFactor);
             addLinkToPDF(pdf, 'banner-tours', elementToPrint, scaleFactor);
             addLinkToPDF(pdf, 'banner-traslados', elementToPrint, scaleFactor);
             addLinkToPDF(pdf, 'footer-wpp-link', elementToPrint, scaleFactor);
-            // --- FIN DE LA CORRECCIÓN DE ENLACES ---
             
             const nombreCliente = document.getElementById('nombre-completo').value;
             
