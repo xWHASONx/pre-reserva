@@ -127,9 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const msgVuelos = encodeURIComponent(`Hola, estoy interesado en cotizar tiquetes aéreos para mi reserva a ${data.destino}. Titular: ${data.nombre}`);
         const msgTours = encodeURIComponent(`Hola, me gustaría información sobre tours y actividades para mi reserva en ${data.hotel}. Titular: ${data.nombre}`);
         const msgTraslados = encodeURIComponent(`Hola, necesito cotizar los traslados privados para mi reserva en ${data.hotel}. Titular: ${data.nombre}`);
-        document.getElementById('banner-vuelos').href = `https://wa.me/573147294382?text=${msgVuelos}`;
-        document.getElementById('banner-tours').href = `https://wa.me/573147294382?text=${msgTours}`;
-        document.getElementById('banner-traslados').href = `https://wa.me/573147294382?text=${msgTraslados}`;
+        document.getElementById('banner-vuelos').href = `https://wa.me/573147290720?text=${msgVuelos}`;
+        document.getElementById('banner-tours').href = `https://wa.me/573147290720?text=${msgTours}`;
+        document.getElementById('banner-traslados').href = `https://wa.me/573147290720?text=${msgTraslados}`;
     }
 
     // --- 4. FUNCIÓN PRINCIPAL DE PROCESAMIENTO ---
