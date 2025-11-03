@@ -1,3 +1,5 @@
+const ACCESS_PASSWORD = 'Carrera 35, Av. Las Palmas #15b 143';
+
 function initAutocomplete() {
     const destinoInput = document.getElementById('destino');
     const hotelInput = document.getElementById('hotel');
@@ -21,6 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const EMAILJS_TEMPLATE_ID = 'template_envoogp';
     // ==========================================
     emailjs.init(EMAILJS_PUBLIC_KEY);
+    const loginOverlay = document.getElementById('login-overlay');
+    const loginForm = document.getElementById('login-form');
+    const passwordInput = document.getElementById('password-input');
+    const loginError = document.getElementById('login-error');
+    const mainWrapper = document.querySelector('.wrapper');
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (passwordInput.value === ACCESS_PASSWORD) {
+            loginOverlay.style.display = 'none';
+            mainWrapper.style.display = 'block';
+        } else {
+            loginError.style.display = 'block';
+            passwordInput.value = '';
+        }
+    });
 
     const firebaseConfig = {
       apiKey: "AIzaSyBeoG3uxq3f8wzQgEp0AkhnoWT1TVFLjJs",
