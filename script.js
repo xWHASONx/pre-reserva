@@ -1,4 +1,4 @@
-const ACCESS_PASSWORD = 'Carrera 35, Av. Las Palmas #15b 143';
+const ACCESS_PASSWORD = 'HOLA';
 
 function initAutocomplete() {
     const destinoInput = document.getElementById('destino');
